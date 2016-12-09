@@ -4,13 +4,13 @@
 Simple CLI to display table of `package.json` scripts information for current directory.
 
 
-Install
+## Install
 
 ```
 $ npm i -g pkg-menu-cli
 ```
 
-Usage
+## Usage
 
 ```
 $ package-menu (returns menu)
@@ -29,6 +29,9 @@ You can supply of of switches
 ```
 $ package-menu --sort
 ```
+
+## Roadmap
+   - [ ] Add simple launcher interface ()
 
 ## Credits
 

@@ -21,7 +21,13 @@ function buildMenu(opts = {}) {
   });
 
   console.log('');
-  console.log(chalk.white.cyan(pkgInfo.name) + ' ' + chalk.white.bold(pkgInfo.version));
+  console.log(chalk.white.cyan(pkgInfo.name) + ': ' + chalk.white.bold(pkgInfo.version));
+  console.log('');
+  console.log(chalk.yellow(
+    `Example: Run any script using script name
+         $ npm run <name>
+    `
+  ));
 
   console.log(table.toString());
 

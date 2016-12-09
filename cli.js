@@ -10,6 +10,7 @@ const cli = meow(`
 
     Options
       --sort, -s  Sort Scripts (default: false)
+      --version   Show Package Menu Version
 
     Examples
       $ package-menu --sort
