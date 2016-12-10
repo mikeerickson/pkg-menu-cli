@@ -1,8 +1,11 @@
 const chalk   = require('chalk');
-const pkgInfo = require('../package.json');
 const Table   = require('cli-table2');         // INFO: https://www.npmjs.com/package/cli-table2
 
 function buildMenu(opts = {}) {
+
+  const filename = process.env.PWD + '/package.json';
+  const pkgInfo = require(filename);
+
   // instantiate
   let table = new Table({
       head: ['Name', 'Script'],
