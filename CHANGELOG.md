@@ -5,6 +5,8 @@ See README.md for installation and configuration details
 
 ### Just the changes
 
+- 1.0.1: Adjust table width
+
 - 1.0.1: Fix issue with package.json path
 
 - 1.0.0: First tagged release
