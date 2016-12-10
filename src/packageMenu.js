@@ -9,7 +9,7 @@ function buildMenu(opts = {}) {
   // instantiate
   let table = new Table({
       head: ['Name', 'Script'],
-      colWidths: [25, 75]
+      colWidths: [20, 100]
   });
 
   let scripts = pkgInfo.scripts;
