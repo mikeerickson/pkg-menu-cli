@@ -9,21 +9,24 @@ const cli = meow(`
       $ package-menu [options]
 
     Options
-      --sort, -s  Sort Scripts (default: false)
-      --version   Show Package Menu Version
+      --help, -h      Shows Help (this screen)
+      --sort, -s      Sort Scripts (default: false)
+      --version, -V   Show Package Menu Version
 
     Examples
       $ package-menu --sort
 `, {
     alias: {
-        s: 'sort'
+        s: 'sort',
+        h: 'help',
+        V: 'version'
     }
 });
 
 // 'input: ', cli.input[0];
 // console.log('flags', cli.flags);
 
-packageMenu.build(cli.flags)
+const menu = packageMenu.print('', cli.flags)
 
 
 // foo(cli.input[0], cli.flags);

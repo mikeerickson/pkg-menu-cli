@@ -9,7 +9,8 @@
   "scripts": {
     "eslint": "eslint \"./**/*.js\"",
     "test": "mocha",
-    "menu": "node ./cli.js"
+    "menu": "node ./cli.js",
+    "all": "npm run eslint && npm run test"
   },
   "keywords": [
     "package",
