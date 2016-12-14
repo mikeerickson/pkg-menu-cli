@@ -5,6 +5,11 @@ See README.md for installation and configuration details
 
 ### Just the changes
 
+- 1.1.1: Minor tweaks
+    - Removed fixed column widht for 'script' column
+    
+- 1.1.0: Internal refactoring for better testing
+
 - 1.0.1: Adjust table width
 
 - 1.0.1: Fix issue with package.json path
