@@ -23,10 +23,4 @@ const cli = meow(`
     }
 });
 
-// 'input: ', cli.input[0];
-// console.log('flags', cli.flags);
-
 const menu = packageMenu.print('', cli.flags)
-
-
-// foo(cli.input[0], cli.flags);
