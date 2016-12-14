@@ -32,7 +32,7 @@ function printMenu(filename = '', options = {}) {
   console.log(chalk.yellow(
     `Example: Run any script using script name
          $ npm run <name>
-  `
+     `
   ));
 
   const table = buildMenu(pkgInfo, options);
