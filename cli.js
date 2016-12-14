@@ -23,4 +23,4 @@ const cli = meow(`
     }
 });
 
-const menu = packageMenu.print('', cli.flags)
+packageMenu.print('', cli.flags)

@@ -63,7 +63,9 @@ let packageMenu = {
     return buildMenu(pkgInfo, options);
   },
   print: (filename = '', options = {}) => {
-    console.log(printMenu(filename, options));
+    const menu = printMenu(filename, options)
+    console.log(menu);
+    return menu;
   }
 
 }
