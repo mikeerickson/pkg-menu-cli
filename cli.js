@@ -29,6 +29,8 @@ const cli = meow(`
     }
 });
 
+console.log('');
+
 if (cli.flags.update) {
   execa('npm i -g package-menu-cli@latest', []).then(result => {
     console.log(result.stdout);
