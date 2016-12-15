@@ -29,4 +29,9 @@ describe('==> Package Name CLI', () => {
     expect(menuData[0][0]).to.equal('all');  // first element from this project is `all`
   });
 
+  it('gracefully handle missing `package.json`', function () {
+    menuData = packageMenu.build(packageMenu.getPackageInfo('table1.json'));
+    expect(menuData).to.include.keys('error','message');
+  });
+
 });

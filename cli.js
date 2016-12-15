@@ -1,13 +1,24 @@
 #!/usr/bin/env node
 'use strict';
 
+// load all modules we will be using
 const meow           = require('meow');
-const execa          = require('execa');
 const updateNotifier = require('update-notifier');
+const latestVersion  = require('latest-version');
+const compare        = require('semver-compare');
+
+// load package class
 const pkg            = require('./package.json');
 const packageMenu    = require('./src/packageMenu.js');
 
-updateNotifier({pkg}).notify();
+// see if we have a newer version of cli
+latestVersion(pkg.name).then(version => {
+  const notifier = updateNotifier({pkg});
+  notifier.update = {latest: version, current: pkg.version}
+  if (compare(pkg.version, version) === -1) {
+    notifier.notify();
+  }
+});
 
 const cli = meow(`
     Usage
@@ -31,11 +42,4 @@ const cli = meow(`
 
 console.log('');
 
-if (cli.flags.update) {
-  execa('npm i -g package-menu-cli@latest', []).then(result => {
-    console.log(result.stdout);
-});
-}
-else {
-  packageMenu.print('', cli.flags)
-}
+packageMenu.print('', cli.flags)

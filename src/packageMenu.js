@@ -4,7 +4,7 @@ const fs      = require('fs');
 
 function buildMenu(pkgInfo = {}, opts = {}) {
   if (!pkgInfo.hasOwnProperty('scripts')) {
-    return {err: true, messasge: 'package.json does not contain any scripts'};
+    return {error: true, message: 'package.json does not contain any scripts'};
   }
   // instantiate
   let table = new Table({
@@ -27,6 +27,10 @@ function buildMenu(pkgInfo = {}, opts = {}) {
 
 function printMenu(filename = '', options = {}) {
   const pkgInfo = getPackageInfo(filename);
+  if (pkgInfo.hasOwnProperty('error')) {
+    console.log(chalk.red(pkgInfo.msg));
+    return pkgInfo;
+  }
   console.log(chalk.cyan.bold(pkgInfo.name) + ': ' + chalk.white.bold(pkgInfo.version));
   console.log('');
   console.log(chalk.yellow(
@@ -46,7 +50,7 @@ function getPackageInfo(filename = '') {
   }
 
   if (!fs.existsSync(filename)) {
-    const err = {error: -43, msg:`Error: Unable to locate ${chalk.red.bold(filename)}`};
+    const err = {error: true, msg:`Error: Unable to locate ${chalk.red.bold(filename)}`};
     return err;
   }
 
@@ -63,9 +67,14 @@ let packageMenu = {
     return buildMenu(pkgInfo, options);
   },
   print: (filename = '', options = {}) => {
-    const menu = printMenu(filename, options)
-    console.log(menu);
-    return menu;
+    const menu = printMenu(filename, options);
+    if (menu.hasOwnProperty('error')) {
+      return menu;
+    }
+    else {
+      console.log(menu);
+      return menu;
+    }
   }
 
 }
