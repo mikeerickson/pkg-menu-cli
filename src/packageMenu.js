@@ -3,9 +3,11 @@ const Table   = require('cli-table2');         // INFO: https://www.npmjs.com/pa
 const fs      = require('fs');
 
 function buildMenu(pkgInfo = {}, opts = {}) {
+
   if (!pkgInfo.hasOwnProperty('scripts')) {
     return {error: true, message: 'package.json does not contain any scripts'};
   }
+
   // instantiate
   let table = new Table({
       head: ['Name', 'Script'],
@@ -14,6 +16,7 @@ function buildMenu(pkgInfo = {}, opts = {}) {
 
   const scripts     = pkgInfo.scripts;
   const scriptNames = Object.keys(scripts);
+
   if (opts.sort) {
     scriptNames.sort();
   }
@@ -30,6 +33,10 @@ function printMenu(filename = '', options = {}) {
   if (pkgInfo.hasOwnProperty('error')) {
     console.log(chalk.red(pkgInfo.msg));
     return pkgInfo;
+  }
+  else if (!pkgInfo.hasOwnProperty('scripts')) {
+    console.log(chalk.red(`Error: Unable to locate Script items for ${chalk.bold(pkgInfo.name)}`))
+    return {error: true, message: `Unable to locate Script items for ${pkgInfo.name}`};
   }
   console.log(chalk.cyan.bold(pkgInfo.name) + ': ' + chalk.white.bold(pkgInfo.version));
   console.log('');
