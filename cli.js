@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+/*global require, module */
+
 'use strict';
 
 // load all modules we will be using
@@ -27,6 +30,7 @@ const cli = meow(`
     Options
       --help, -h         Shows Help (this screen)
       --sort, -s         Sort Scripts (default: false)
+      --compress, -c     Show Command Only (no description)
       --version, -V, -v  Show Package Menu Version
 
     Examples
@@ -34,6 +38,7 @@ const cli = meow(`
 `, {
     alias: {
         s: 'sort',
+        c: 'compress',
         h: 'help',
         V: 'version',
         v: 'version'
@@ -41,5 +46,5 @@ const cli = meow(`
 });
 
 console.log('');
-
+console.log(cli.flags);
 packageMenu.print('', cli.flags)

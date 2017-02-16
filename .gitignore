@@ -1,2 +1,7 @@
 node_modules
 NOTES.md
+.idea
+.idea/modules.xml
+.idea/pkg-menu-cli.iml
+.idea/workspace.xml
+.idea

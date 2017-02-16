@@ -1,18 +1,32 @@
+/*global require*/
+
 const chalk   = require('chalk');
 const Table   = require('cli-table2');         // INFO: https://www.npmjs.com/package/cli-table2
 const fs      = require('fs');
 
 function buildMenu(pkgInfo = {}, opts = {}) {
 
+  console.log(opts);
+
   if (!pkgInfo.hasOwnProperty('scripts')) {
     return {error: true, message: 'package.json does not contain any scripts'};
   }
 
+  let table;
+
   // instantiate
-  let table = new Table({
-      head: ['Name', 'Script'],
-      colWidths: [20]
-  });
+  if(opts.compress) {
+		table = new Table({
+			head: ['Name']
+		});
+  }
+  else {
+		table = new Table({
+			head: ['Name', 'Script'],
+			colWidths: [20]
+		});
+  }
+
 
   const scripts     = pkgInfo.scripts;
   const scriptNames = Object.keys(scripts);
@@ -20,11 +34,18 @@ function buildMenu(pkgInfo = {}, opts = {}) {
   if (opts.sort) {
     scriptNames.sort();
   }
-  scriptNames.map((item) => {
-    table.push(
+  if(!opts.compress) {
+      scriptNames.map((item) => {
+        table.push(
         [item, scripts[item]]
-    );
-  });
+      );
+    });
+  } else {
+		scriptNames.map((item) => {
+			table.push([item]);
+    });
+  }
+
   return table;
 }
 

@@ -24,7 +24,8 @@ $ package-menu (returns menu)
 ```
 
 You can supply of of switches
--- sort, -s   Sort Result
+-- sort, -s     Sort Result
+-- compress, -c Display Script Name Only
 
 ```
 $ package-menu --sort

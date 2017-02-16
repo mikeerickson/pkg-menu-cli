@@ -5,8 +5,12 @@ See README.md for installation and configuration details
 
 ### Just the changes
 
+- 1.3.0: Added `compress` switch
+    - `$ package-menu --compress`
+    - `$ package-menu -c`
+
 - 1.1.1: Minor tweaks
-    - Removed fixed column widht for 'script' column
+    - Removed fixed column width for 'script' column
     
 - 1.1.0: Internal refactoring for better testing
 
