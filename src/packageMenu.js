@@ -15,7 +15,7 @@ function buildMenu(pkgInfo = {}, opts = {}) {
   let table;
 
   // instantiate
-  if(opts.compress) {
+  if (opts.compress) {
 		table = new Table({
 			head: ['Name']
 		});
@@ -34,13 +34,14 @@ function buildMenu(pkgInfo = {}, opts = {}) {
   if (opts.sort) {
     scriptNames.sort();
   }
-  if(!opts.compress) {
+  if (!opts.compress) {
       scriptNames.map((item) => {
         table.push(
         [item, scripts[item]]
       );
     });
-  } else {
+  }
+  else {
 		scriptNames.map((item) => {
 			table.push([item]);
     });
