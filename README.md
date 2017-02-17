@@ -56,3 +56,5 @@ E-Mail: [codedungeon@gmail.com](mailto:codedungeon@gmail.com)
 Twitter: [@codedungeon](http://twitter.com/codedungeon)
 
 Website: [codedungeon.org](http://codedungeon.org)
+
+Special Credit to [ruyadorno](https://github.com/ruyadorno/ntl) for his work on [ntl](https://github.com/ruyadorno/ntl)
