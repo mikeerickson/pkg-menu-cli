@@ -20,7 +20,7 @@ function buildMenu(pkgInfo = {}, opts = {}) {
   }
   else {
     table = new Table({
-      head: ['Name', 'Script'],
+      head: [chalk.magenta.bold('Name'), chalk.magenta.bold('Script')],
       colWidths: [20, (process.stdout.columns - 25)],
     })
   }
@@ -34,7 +34,7 @@ function buildMenu(pkgInfo = {}, opts = {}) {
   if (!opts.compress) {
     scriptNames.map((item) => {
       table.push(
-        [item, scripts[item]]
+        [chalk.bold(item), chalk.gray.bold(scripts[item])]
       )
     })
   }
@@ -61,8 +61,19 @@ function printMenu(filename = '', options = {}) {
       message: `Unable to locate Script items for ${pkgInfo.name}`,
     }
   }
+
+  let pkgVersion = pkgInfo.version;
+  if (typeof pkgInfo.version === 'undefined') {
+    pkgVersion = 'Unknown Version';
+  }
+
+  let pkgName = pkgInfo.name;
+  if (typeof pkgInfo.name === 'undefined') {
+    pkgName = 'Unknown Package Name'
+  }
+
   console.log(
-    chalk.cyan.bold(pkgInfo.name) + ': ' + chalk.white.bold(pkgInfo.version))
+    chalk.cyan.bold(pkgName) + ': ' + chalk.white.bold(pkgVersion))
   console.log('')
   console.log(chalk.yellow(
     `Example: Run any script using script name
