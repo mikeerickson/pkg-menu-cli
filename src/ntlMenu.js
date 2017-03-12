@@ -1,6 +1,6 @@
 
 let ntlMenu = {
-	execute: function(args) {
+	execute: function (args) {
 		const ntl = require('../node_modules/ntl/cli.js');
 	}
 };
