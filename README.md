@@ -9,7 +9,7 @@ Simple CLI to display table of `package.json` scripts information for current di
 ```
 $ npm i -g pkg-menu-cli
 ```
-
+[Package Menu CLI on npm](https://www.npmjs.com/package/package-menu-cli)
 ## Usage
 
 ```
