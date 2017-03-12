@@ -5,6 +5,8 @@ See `README.md` for installation and configuration details
 
 ### Just the changes
 
+- 14.2: Issues
+    - Added terminal width check [#005](https://github.com/mikeerickson/pkg-menu-cli/issues/5)
 - 1.4.0: Added `launch` interface
     - Further cli options will be passed to `launcher`
       - `$ package-menu -l -a | -m | -i`

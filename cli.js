@@ -57,7 +57,8 @@ const cli = meow(`
 
 if ((cli.flags.launch) || (cli.flags.l)){
   ntlMenu.execute();
-} else {
+}
+else {
   console.log('');
   packageMenu.print('', cli.flags);
 }
