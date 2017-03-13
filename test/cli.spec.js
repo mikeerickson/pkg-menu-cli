@@ -25,8 +25,8 @@ describe('==> Package Name CLI', () => {
 
   it('should properly sort result [uses --sort flag]', function () {
     menuData = packageMenu.build(packageMenu.getPackageInfo(),{sort: true});
-    // console.log(menuData);
-    expect(menuData[0][0]).to.equal('all');  // first element from this project is `all`
+    // need to use contain as the result has console color information as part of result
+    expect(menuData[0][0]).to.contain('all');  // first element from this project is `all`
   });
 
   it('gracefully handle missing `package.json`', function () {

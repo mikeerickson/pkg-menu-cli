@@ -6,13 +6,13 @@ const fs    = require('fs')
 
 function buildMenu(pkgInfo = {}, opts = {}) {
 
+  let table;
+
   if (!pkgInfo.hasOwnProperty('scripts')) {
     return {error: true, message: 'package.json does not contain any scripts'}
   }
 
-  let table
-
-// instantiate
+  // instantiate
   if (opts.compress) {
     table = new Table({
       head: ['Name'],
@@ -25,7 +25,7 @@ function buildMenu(pkgInfo = {}, opts = {}) {
     })
   }
 
-  const scripts = pkgInfo.scripts
+  const scripts     = pkgInfo.scripts
   const scriptNames = Object.keys(scripts)
 
   if (opts.sort) {
