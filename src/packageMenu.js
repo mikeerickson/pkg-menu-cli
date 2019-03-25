@@ -2,14 +2,14 @@
 
 const chalk = require('chalk')
 const Table = require('cli-table2')  // INFO: https://www.npmjs.com/package/cli-table2
-const fs    = require('fs')
+const fs = require('fs')
 
 function buildMenu(pkgInfo = {}, opts = {}) {
 
   let table;
 
   if (!pkgInfo.hasOwnProperty('scripts')) {
-    return {error: true, message: 'package.json does not contain any scripts'}
+    return { error: true, message: 'package.json does not contain any scripts' }
   }
 
   // instantiate
@@ -25,7 +25,7 @@ function buildMenu(pkgInfo = {}, opts = {}) {
     })
   }
 
-  const scripts     = pkgInfo.scripts
+  const scripts = pkgInfo.scripts
   const scriptNames = Object.keys(scripts)
 
   if (opts.sort) {

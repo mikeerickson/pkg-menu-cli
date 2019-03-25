@@ -5,21 +5,21 @@
 'use strict';
 
 // load all modules we will be using
-const meow           = require('meow');
+const meow = require('meow');
 const updateNotifier = require('update-notifier');
-const latestVersion  = require('latest-version');
-const compare        = require('semver-compare');
-const execa          = require('execa');
+const latestVersion = require('latest-version');
+const compare = require('semver-compare');
+const execa = require('execa');
 
 // load package class
-const pkg            = require('./package.json');
-const packageMenu    = require('./src/packageMenu.js');
-const ntlMenu        = require('./src/ntlMenu.js');
+const pkg = require('./package.json');
+const packageMenu = require('./src/packageMenu.js');
+const ntlMenu = require('./src/ntlMenu.js');
 
 // see if we have a newer version of cli
 latestVersion(pkg.name).then(version => {
-  const notifier = updateNotifier({pkg});
-  notifier.update = {latest: version, current: pkg.version}
+  const notifier = updateNotifier({ pkg });
+  notifier.update = { latest: version, current: pkg.version }
   if (compare(pkg.version, version) === -1) {
     notifier.notify();
   }
@@ -46,16 +46,16 @@ const cli = meow(`
       $ package-menu -l -m
 `, {
     alias: {
-        s: 'sort',
-        c: 'compress',
-        h: 'help',
-        V: 'version',
-        v: 'version',
-        l: 'launch'
+      s: 'sort',
+      c: 'compress',
+      h: 'help',
+      V: 'version',
+      v: 'version',
+      l: 'launch'
     }
-});
+  });
 
-if ((cli.flags.launch) || (cli.flags.l)){
+if ((cli.flags.launch) || (cli.flags.l)) {
   ntlMenu.execute();
 }
 else {

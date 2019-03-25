@@ -1,0 +1,13 @@
+Inbox:
+	- add option to show composer.json items @na
+pkg-menu-cli:
+	New Features:
+	Ideas:
+	Bugs:
+Archive:
+Search Definitions:
+	Top Priority @search(@priority = 5 and not @done)
+	High Priority @search(@priority > 3 and not @done)
+	Maybe @search(@maybe)
+	Next @search(@na and not @done and not project = "Archive")
+
