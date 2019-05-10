@@ -1,10 +1,9 @@
-var chai        = require('chai');
-var expect      = chai.expect;
-var assert      = chai.assert;
+var chai = require('chai');
+var expect = chai.expect;
+var assert = chai.assert;
 var packageMenu = require('../src/packageMenu.js');
 
 describe('==> Package Name CLI', () => {
-
   let pkgInfo;
   let menuData;
 
@@ -14,24 +13,25 @@ describe('==> Package Name CLI', () => {
   });
 
   it('should return package information for supplied filename', function () {
-    pkgInfo = {'scripts': {}};
+    pkgInfo = { scripts: {} };
     expect(pkgInfo).to.include.keys('scripts');
   });
 
   it('should return table of scripts', function () {
     menuData = packageMenu.build(packageMenu.getPackageInfo());
-    expect(menuData).to.be.instanceof(Array);
+
+    expect(menuData).to.be.instanceof(Object);
   });
 
   it('should properly sort result [uses --sort flag]', function () {
-    menuData = packageMenu.build(packageMenu.getPackageInfo(),{sort: true});
+    menuData = packageMenu.build(packageMenu.getPackageInfo(), { sort: true });
+    expect(menuData.length).to.be.greaterThan(0);
     // need to use contain as the result has console color information as part of result
-    expect(menuData[0][0]).to.contain('all');  // first element from this project is `all`
+    expect(menuData[0][0]).to.contain('all'); // first element from this project is `all`
   });
 
   it('gracefully handle missing `package.json`', function () {
     menuData = packageMenu.build(packageMenu.getPackageInfo('table1.json'));
-    expect(menuData).to.include.keys('error','message');
+    expect(menuData).to.include.keys('error', 'message');
   });
-
 });

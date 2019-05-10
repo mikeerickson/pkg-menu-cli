@@ -1,6 +1,7 @@
-## package-menu-cli Changelog
+# package-menu-cli Changelog
 
-### Overview
+## Overview
+
 See `README.md` for installation and configuration details
 
 ### Just the changes
