@@ -1,6 +1,6 @@
 {
   "name": "package-menu-cli",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Displays menu of scripts from directory containing `package.json`",
   "main": "cli.js",
   "bin": {
