@@ -1,6 +1,6 @@
 {
   "name": "package-menu-cli",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Displays menu of scripts from directory containing `package.json`",
   "main": "cli.js",
   "bin": {
@@ -23,12 +23,12 @@
   "reveal": true,
   "dependencies": {
     "chalk": "^1.1.3",
-    "cli-table2": "^0.2.0",
+    "cli-table3": "0.5.1",
     "execa": "0.6.0",
     "meow": "^3.7.0",
+    "ntl": "1.1.3",
     "semver-compare": "^1.0.0",
-    "update-notifier": "^1.0.3",
-    "ntl": "1.1.3"
+    "update-notifier": "^1.0.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",

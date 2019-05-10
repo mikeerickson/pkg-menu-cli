@@ -1,7 +1,7 @@
 /*global require*/
 
 const chalk = require('chalk')
-const Table = require('cli-table2')  // INFO: https://www.npmjs.com/package/cli-table2
+const Table = require('cli-table3')
 const fs = require('fs')
 
 function buildMenu(pkgInfo = {}, opts = {}) {
