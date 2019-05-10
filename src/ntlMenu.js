@@ -1,6 +1,5 @@
-
-let ntlMenu = {
-  execute: function (args) {
+const ntlMenu = {
+  execute: args => {
     const ntl = require('../node_modules/ntl/cli.js');
   }
 };

@@ -19,13 +19,14 @@ const ntlMenu = require('./src/ntlMenu.js');
 // see if we have a newer version of cli
 latestVersion(pkg.name).then(version => {
   const notifier = updateNotifier({ pkg });
-  notifier.update = { latest: version, current: pkg.version }
+  notifier.update = { latest: version, current: pkg.version };
   if (compare(pkg.version, version) === -1) {
     notifier.notify();
   }
 });
 
-const cli = meow(`
+const cli = meow(
+  `
     Usage
       $ package-menu [options]
 
@@ -44,7 +45,8 @@ const cli = meow(`
       $ package-menu --sort
       $ package-menu --launch
       $ package-menu -l -m
-`, {
+`,
+  {
     alias: {
       s: 'sort',
       c: 'compress',
@@ -53,13 +55,13 @@ const cli = meow(`
       v: 'version',
       l: 'launch'
     }
-  });
+  }
+);
 
-if ((cli.flags.launch) || (cli.flags.l)) {
+if (cli.flags.launch || cli.flags.l) {
   ntlMenu.execute();
 }
-else {
+ else {
   console.log('');
   packageMenu.print('', cli.flags);
 }
-

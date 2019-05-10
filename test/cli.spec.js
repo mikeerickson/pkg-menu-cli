@@ -1,7 +1,6 @@
-var chai = require('chai');
-var expect = chai.expect;
-var assert = chai.assert;
-var packageMenu = require('../src/packageMenu.js');
+let chai = require('chai');
+let expect = chai.expect;
+let packageMenu = require('../src/packageMenu.js');
 
 describe('==> Package Name CLI', () => {
   let pkgInfo;

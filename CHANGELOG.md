@@ -15,10 +15,13 @@ See `README.md` for installation and configuration details
 
 - 1.4.0: Added `launch` interface
   - Further cli options will be passed to `launcher`
-    - `$ package-menu -l -a | -m | -i`
-        `  --all, -a run all scripts`
-        `  --info, -i shows package description`
-        `  --multiple, -m allow multiple selection`
+
+```js
+    - $ package-menu -l -a | -m | -i
+          --all, -a run all scripts
+          --info, -i shows package description
+          --multiple, -m allow multiple selection
+```
 
 - 1.3.0: Added `compress` switch
   - `$ package-menu --compress`

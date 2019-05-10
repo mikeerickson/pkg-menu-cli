@@ -7,10 +7,10 @@
     "package-menu": "cli.js"
   },
   "scripts": {
-    "eslint": "eslint \"./**/*.js\"",
+    "lint": "eslint \"./**/*.js\"",
     "test": "mocha",
     "menu": "node ./cli.js",
-    "all": "npm run eslint && npm run test"
+    "all": "npm run lint && npm run test"
   },
   "keywords": [
     "package",
